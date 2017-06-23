@@ -21,7 +21,7 @@ func (h *host) allocate(session string, hostname string, informationManagerName 
 	return errorOrInt(v)
 }
 
-func (h *host) deleteHost(session string, hostID int) (int, error) {
+func (h *host) delete(session string, hostID int) (int, error) {
 	v, err := h.client.Call("one.host.delete", session, hostID)
 	if err != nil {
 		return 0, err

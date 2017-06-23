@@ -19,7 +19,7 @@ func (u *user) allocate(session string, username string, password string, authen
 	return errorOrInt(v)
 }
 
-func (u *user) deleteUser(session string, id int) (int, error) {
+func (u *user) delete(session string, id int) (int, error) {
 	v, err := u.client.Call("one.user.delete", session, id)
 	if err != nil {
 		return 0, err

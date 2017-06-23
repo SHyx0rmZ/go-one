@@ -15,7 +15,7 @@ func (m *marketplace) allocate(session string, template string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (m *marketplace) deleteMarketplace(session string, id int) (int, error) {
+func (m *marketplace) delete(session string, id int) (int, error) {
 	v, err := m.client.Call("one.marketplace.delete", session, id)
 	if err != nil {
 		return 0, err

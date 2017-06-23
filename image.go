@@ -33,7 +33,7 @@ func (i *image) clone(session string, id int, name string, dataStoreID int) (int
 	return errorOrInt(v)
 }
 
-func (i *image) deleteImage(session string, id int) (int, error) {
+func (i *image) delete(session string, id int) (int, error) {
 	v, err := i.client.Call("one.image.delete", session, id)
 	if err != nil {
 		return 0, err

@@ -15,7 +15,7 @@ func (g *group) allocate(session string, name string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (g *group) deleteGroup(session string, id int) (int, error) {
+func (g *group) delete(session string, id int) (int, error) {
 	v, err := g.client.Call("one.group.delete", session, id)
 	if err != nil {
 		return 0, err

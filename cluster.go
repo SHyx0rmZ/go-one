@@ -15,7 +15,7 @@ func (c *cluster) allocate(session string, name string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (c *cluster) deleteCluster(session string, clusterID int) (int, error) {
+func (c *cluster) delete(session string, clusterID int) (int, error) {
 	v, err := c.client.Call("one.cluster.delete", session, clusterID)
 	if err != nil {
 		return 0, err

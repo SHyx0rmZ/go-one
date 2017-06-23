@@ -15,7 +15,7 @@ func (d *datastore) allocate(session string, template string, clusterID int) (in
 	return errorOrInt(v)
 }
 
-func (d *datastore) deleteDataStore(session string, id int) (int, error) {
+func (d *datastore) delete(session string, id int) (int, error) {
 	v, err := d.client.Call("one.datastore.delete", session, id)
 	if err != nil {
 		return 0, err

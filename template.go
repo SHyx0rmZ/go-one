@@ -33,7 +33,7 @@ func (t *template) clone(session string, id int, name string, withImage bool) (i
 	return errorOrInt(v)
 }
 
-func (t *template) deleteTemplate(session string, id int, withImage bool) (int, error) {
+func (t *template) delete(session string, id int, withImage bool) (int, error) {
 	v, err := t.client.Call("one.template.delete", session, id, withImage)
 	if err != nil {
 		return 0, err

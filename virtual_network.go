@@ -15,7 +15,7 @@ func (n *virtualNetwork) allocate(session string, template string, clusterID int
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) deleteVirtualNetwork(session string, id int) (int, error) {
+func (n *virtualNetwork) delete(session string, id int) (int, error) {
 	v, err := n.client.Call("one.vn.delete", session, id)
 	if err != nil {
 		return 0, err

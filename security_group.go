@@ -24,7 +24,7 @@ func (s *securityGroup) clone(session string, id int, name string, dataStoreID i
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) deleteSecurityGroup(session string, id int) (int, error) {
+func (s *securityGroup) delete(session string, id int) (int, error) {
 	v, err := s.client.Call("one.secgroup.delete", session, id)
 	if err != nil {
 		return 0, err

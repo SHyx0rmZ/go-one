@@ -15,7 +15,7 @@ func (r *virtualRouter) allocate(session string, template string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (r *virtualRouter) deleteVirtualRouter(session string, id int) (int, error) {
+func (r *virtualRouter) delete(session string, id int) (int, error) {
 	v, err := r.client.Call("one.vrouter.delete", session, id)
 	if err != nil {
 		return 0, err
