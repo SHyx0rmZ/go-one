@@ -81,7 +81,7 @@ func (s *securityGroup) rename(session string, id int, name string) (int, error)
 func (s *securityGroup) info(session string, id int) (string, error) {
 	v, err := s.client.Call("one.secgroup.info", session, id)
 	if err != nil {
-		return err, err
+		return "", err
 	}
 
 	return errorOrString(v)

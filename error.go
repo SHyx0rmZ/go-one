@@ -11,6 +11,14 @@ func (e OneError) Error() string {
 	return e.message
 }
 
+func errorOrBool(v xmlrpc.Value) (bool, error) {
+	if v.AsArray()[0].AsBool() != true {
+		return false, &OneError{v.AsArray()[1].AsString(), v.AsArray()[2].AsInt()}
+	}
+
+	return v.AsArray()[1].AsBool(), nil
+}
+
 func errorOrInt(v xmlrpc.Value) (int, error) {
 	if v.AsArray()[0].AsBool() != true {
 		return 0, &OneError{v.AsArray()[1].AsString(), v.AsArray()[2].AsInt()}
