@@ -19,11 +19,11 @@ const (
 	stateCloningFailure = 11
 )
 
-type vmPool struct {
+type virtualMachinePool struct {
 	client xmlrpc.Client
 }
 
-func (p *vmPool) info(session string, filter int, start int, end int, state int) (string, error) {
+func (p *virtualMachinePool) info(session string, filter int, start int, end int, state int) (string, error) {
 	v, err := p.client.Call("one.vmpool.info", session, filter, start, end, state)
 	if err != nil {
 		return "", err
@@ -32,7 +32,7 @@ func (p *vmPool) info(session string, filter int, start int, end int, state int)
 	return errorOrString(v)
 }
 
-func (p *vmPool) monitoring(session string, filter int) (string, error) {
+func (p *virtualMachinePool) monitoring(session string, filter int) (string, error) {
 	v, err := p.client.Call("one.vmpool.monitoring", session, filter)
 	if err != nil {
 		return "", err
@@ -41,7 +41,7 @@ func (p *vmPool) monitoring(session string, filter int) (string, error) {
 	return errorOrString(v)
 }
 
-func (p *vmPool) accounting(session string, filter int, startTime int, endTime int) (string, error) {
+func (p *virtualMachinePool) accounting(session string, filter int, startTime int, endTime int) (string, error) {
 	v, err := p.client.Call("one.vmpool.accounting", session, filter, startTime, endTime)
 	if err != nil {
 		return "", err
@@ -50,7 +50,7 @@ func (p *vmPool) accounting(session string, filter int, startTime int, endTime i
 	return errorOrString(v)
 }
 
-func (p *vmPool) showback(session string, filter int, firstMonth int, firstYear int, lastMonth int, lastYear int) (string, error) {
+func (p *virtualMachinePool) showback(session string, filter int, firstMonth int, firstYear int, lastMonth int, lastYear int) (string, error) {
 	v, err := p.client.Call("one.vmpool.showback", session, filter, firstMonth, firstYear, lastMonth, lastYear)
 	if err != nil {
 		return "", err
@@ -59,7 +59,7 @@ func (p *vmPool) showback(session string, filter int, firstMonth int, firstYear 
 	return errorOrString(v)
 }
 
-func (p *vmPool) calculateShowback(session string, firstMonth int, firstYear int, lastMonth int, lastYear int) error {
+func (p *virtualMachinePool) calculateShowback(session string, firstMonth int, firstYear int, lastMonth int, lastYear int) error {
 	v, err := p.client.Call("one.vmpool.calculateshowback", session, firstMonth, firstYear, lastMonth, lastYear)
 	if err != nil {
 		return err
