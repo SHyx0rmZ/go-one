@@ -11,12 +11,12 @@ const (
 	PermissionAllow      = 1
 )
 
-type template struct {
-	client xmlrpc.Client
+type Template struct {
+	Client xmlrpc.Client
 }
 
-func (t *template) allocate(session string, template string) (int, error) {
-	v, err := t.client.Call("one.template.allocate", session, template)
+func (t *Template) Allocate(session string, template string) (int, error) {
+	v, err := t.Client.Call("one.template.allocate", session, template)
 	if err != nil {
 		return 0, err
 	}
@@ -24,8 +24,8 @@ func (t *template) allocate(session string, template string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (t *template) clone(session string, id int, name string, withImage bool) (int, error) {
-	v, err := t.client.Call("one.template.clone", session, id, name, withImage)
+func (t *Template) Clone(session string, id int, name string, withImage bool) (int, error) {
+	v, err := t.Client.Call("one.template.clone", session, id, name, withImage)
 	if err != nil {
 		return 0, err
 	}
@@ -33,8 +33,8 @@ func (t *template) clone(session string, id int, name string, withImage bool) (i
 	return errorOrInt(v)
 }
 
-func (t *template) delete(session string, id int, withImage bool) (int, error) {
-	v, err := t.client.Call("one.template.delete", session, id, withImage)
+func (t *Template) Delete(session string, id int, withImage bool) (int, error) {
+	v, err := t.Client.Call("one.template.delete", session, id, withImage)
 	if err != nil {
 		return 0, err
 	}
@@ -42,8 +42,8 @@ func (t *template) delete(session string, id int, withImage bool) (int, error) {
 	return errorOrInt(v)
 }
 
-func (t *template) instantiate(session string, id int, name string, onHold bool, extraTemplate string, persistentCopy bool) (int, error) {
-	v, err := t.client.Call("one.template.instantiate", session, id, name, onHold, extraTemplate, persistentCopy)
+func (t *Template) Instantiate(session string, id int, name string, onHold bool, extraTemplate string, persistentCopy bool) (int, error) {
+	v, err := t.Client.Call("one.template.instantiate", session, id, name, onHold, extraTemplate, persistentCopy)
 	if err != nil {
 		return 0, err
 	}
@@ -51,8 +51,8 @@ func (t *template) instantiate(session string, id int, name string, onHold bool,
 	return errorOrInt(v)
 }
 
-func (t *template) update(session string, id int, template string, updateType int) (int, error) {
-	v, err := t.client.Call("one.template.update", session, id, template, updateType)
+func (t *Template) Update(session string, id int, template string, updateType int) (int, error) {
+	v, err := t.Client.Call("one.template.update", session, id, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -60,8 +60,8 @@ func (t *template) update(session string, id int, template string, updateType in
 	return errorOrInt(v)
 }
 
-func (t *template) chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int, withImage bool) (int, error) {
-	v, err := t.client.Call("one.template.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin, withImage)
+func (t *Template) Chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int, withImage bool) (int, error) {
+	v, err := t.Client.Call("one.template.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin, withImage)
 	if err != nil {
 		return 0, err
 	}
@@ -69,8 +69,8 @@ func (t *template) chmod(session string, id int, userUse int, userManage int, us
 	return errorOrInt(v)
 }
 
-func (t *template) chown(session string, id int, userID int, groupID int) (int, error) {
-	v, err := t.client.Call("one.template.chown", session, id, userID, groupID)
+func (t *Template) Chown(session string, id int, userID int, groupID int) (int, error) {
+	v, err := t.Client.Call("one.template.chown", session, id, userID, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -78,8 +78,8 @@ func (t *template) chown(session string, id int, userID int, groupID int) (int, 
 	return errorOrInt(v)
 }
 
-func (t *template) rename(session string, id int, name string) (int, error) {
-	v, err := t.client.Call("one.template.rename", session, id, name)
+func (t *Template) Rename(session string, id int, name string) (int, error) {
+	v, err := t.Client.Call("one.template.rename", session, id, name)
 	if err != nil {
 		return 0, err
 	}
@@ -87,8 +87,8 @@ func (t *template) rename(session string, id int, name string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (t *template) info(session string, id int, withDetails bool) (string, error) {
-	v, err := t.client.Call("one.template.info", session, id, withDetails)
+func (t *Template) Info(session string, id int, withDetails bool) (string, error) {
+	v, err := t.Client.Call("one.template.info", session, id, withDetails)
 	if err != nil {
 		return "", err
 	}

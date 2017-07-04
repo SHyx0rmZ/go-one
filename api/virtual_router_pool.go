@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type virtualRouterPool struct {
-	client xmlrpc.Client
+type VirtualRouterPool struct {
+	Client xmlrpc.Client
 }
 
-func (p *virtualRouterPool) info(session string, filter int, start int, end int) (string, error) {
-	v, err := p.client.Call("one.vrouterpool.info", session, filter, start, end)
+func (p *VirtualRouterPool) Info(session string, filter int, start int, end int) (string, error) {
+	v, err := p.Client.Call("one.vrouterpool.info", session, filter, start, end)
 	if err != nil {
 		return "", err
 	}

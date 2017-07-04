@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type hostPool struct {
-	client xmlrpc.Client
+type HostPool struct {
+	Client xmlrpc.Client
 }
 
-func (p *hostPool) info(session string) (string, error) {
-	v, err := p.client.Call("one.hostpool.info", session)
+func (p *HostPool) Info(session string) (string, error) {
+	v, err := p.Client.Call("one.hostpool.info", session)
 	if err != nil {
 		return "", err
 	}
@@ -15,8 +15,8 @@ func (p *hostPool) info(session string) (string, error) {
 	return errorOrString(v)
 }
 
-func (p *hostPool) monitoring(session string) (string, error) {
-	v, err := p.client.Call("one.hostpool.info", session)
+func (p *HostPool) Monitoring(session string) (string, error) {
+	v, err := p.Client.Call("one.hostpool.info", session)
 	if err != nil {
 		return "", err
 	}

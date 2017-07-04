@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type virtualDataCenter struct {
-	client xmlrpc.Client
+type VirtualDataCenter struct {
+	Client xmlrpc.Client
 }
 
-func (d *virtualDataCenter) allocate(session string, template string, clusterID int) (int, error) {
-	v, err := d.client.Call("one.vdc.allocate", session, template, clusterID)
+func (d *VirtualDataCenter) Allocate(session string, template string, clusterID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.allocate", session, template, clusterID)
 	if err != nil {
 		return 0, err
 	}
@@ -15,8 +15,8 @@ func (d *virtualDataCenter) allocate(session string, template string, clusterID 
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) delete(session string, id int) (int, error) {
-	v, err := d.client.Call("one.vdc.delete", session, id)
+func (d *VirtualDataCenter) Delete(session string, id int) (int, error) {
+	v, err := d.Client.Call("one.vdc.delete", session, id)
 	if err != nil {
 		return 0, err
 	}
@@ -24,8 +24,8 @@ func (d *virtualDataCenter) delete(session string, id int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) update(session string, id int, template string, updateType int) (int, error) {
-	v, err := d.client.Call("one.vdc.update", session, id, template, updateType)
+func (d *VirtualDataCenter) Update(session string, id int, template string, updateType int) (int, error) {
+	v, err := d.Client.Call("one.vdc.update", session, id, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -33,8 +33,8 @@ func (d *virtualDataCenter) update(session string, id int, template string, upda
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) rename(session string, id int, name string) (int, error) {
-	v, err := d.client.Call("one.vdc.rename", session, id, name)
+func (d *VirtualDataCenter) Rename(session string, id int, name string) (int, error) {
+	v, err := d.Client.Call("one.vdc.rename", session, id, name)
 	if err != nil {
 		return 0, err
 	}
@@ -42,8 +42,8 @@ func (d *virtualDataCenter) rename(session string, id int, name string) (int, er
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) info(session string, id int) (string, error) {
-	v, err := d.client.Call("one.vdc.info", session, id)
+func (d *VirtualDataCenter) Info(session string, id int) (string, error) {
+	v, err := d.Client.Call("one.vdc.info", session, id)
 	if err != nil {
 		return "", err
 	}
@@ -51,8 +51,8 @@ func (d *virtualDataCenter) info(session string, id int) (string, error) {
 	return errorOrString(v)
 }
 
-func (d *virtualDataCenter) addGroup(session string, id int, groupID int) (int, error) {
-	v, err := d.client.Call("one.vdc.addgroup", session, id, groupID)
+func (d *VirtualDataCenter) AddGroup(session string, id int, groupID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.addgroup", session, id, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -60,8 +60,8 @@ func (d *virtualDataCenter) addGroup(session string, id int, groupID int) (int, 
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) delGroup(session string, id int, groupID int) (int, error) {
-	v, err := d.client.Call("one.vdc.delgroup", session, id, groupID)
+func (d *VirtualDataCenter) DelGroup(session string, id int, groupID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.delgroup", session, id, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -69,8 +69,8 @@ func (d *virtualDataCenter) delGroup(session string, id int, groupID int) (int, 
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) addCluster(session string, id int, zoneID int, clusterID int) (int, error) {
-	v, err := d.client.Call("one.vdc.addcluster", session, id, zoneID, clusterID)
+func (d *VirtualDataCenter) AddCluster(session string, id int, zoneID int, clusterID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.addcluster", session, id, zoneID, clusterID)
 	if err != nil {
 		return 0, err
 	}
@@ -78,8 +78,8 @@ func (d *virtualDataCenter) addCluster(session string, id int, zoneID int, clust
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) delCluster(session string, id int, zoneID int, clusterID int) (int, error) {
-	v, err := d.client.Call("one.vdc.delcluster", session, id, zoneID, clusterID)
+func (d *VirtualDataCenter) DelCluster(session string, id int, zoneID int, clusterID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.delcluster", session, id, zoneID, clusterID)
 	if err != nil {
 		return 0, err
 	}
@@ -87,8 +87,8 @@ func (d *virtualDataCenter) delCluster(session string, id int, zoneID int, clust
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) addHost(session string, id int, zoneID int, hostID int) (int, error) {
-	v, err := d.client.Call("one.vdc.addhost", session, id, zoneID, hostID)
+func (d *VirtualDataCenter) AddHost(session string, id int, zoneID int, hostID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.addhost", session, id, zoneID, hostID)
 	if err != nil {
 		return 0, err
 	}
@@ -96,8 +96,8 @@ func (d *virtualDataCenter) addHost(session string, id int, zoneID int, hostID i
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) delHost(session string, id int, zoneID int, hostID int) (int, error) {
-	v, err := d.client.Call("one.vdc.delhost", session, id, zoneID, hostID)
+func (d *VirtualDataCenter) DelHost(session string, id int, zoneID int, hostID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.delhost", session, id, zoneID, hostID)
 	if err != nil {
 		return 0, err
 	}
@@ -105,8 +105,8 @@ func (d *virtualDataCenter) delHost(session string, id int, zoneID int, hostID i
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) addDataStore(session string, id int, zoneID int, dataStoreID int) (int, error) {
-	v, err := d.client.Call("one.vdc.adddatastore", session, id, zoneID, dataStoreID)
+func (d *VirtualDataCenter) AddDataStore(session string, id int, zoneID int, dataStoreID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.adddatastore", session, id, zoneID, dataStoreID)
 	if err != nil {
 		return 0, err
 	}
@@ -114,8 +114,8 @@ func (d *virtualDataCenter) addDataStore(session string, id int, zoneID int, dat
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) delDataStore(session string, id int, zoneID int, dataStoreID int) (int, error) {
-	v, err := d.client.Call("one.vdc.deldatastore", session, id, zoneID, dataStoreID)
+func (d *VirtualDataCenter) DelDataStore(session string, id int, zoneID int, dataStoreID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.deldatastore", session, id, zoneID, dataStoreID)
 	if err != nil {
 		return 0, err
 	}
@@ -123,8 +123,8 @@ func (d *virtualDataCenter) delDataStore(session string, id int, zoneID int, dat
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) addVNet(session string, id int, zoneID int, vnetID int) (int, error) {
-	v, err := d.client.Call("one.vdc.addvnet", session, id, zoneID, vnetID)
+func (d *VirtualDataCenter) AddVNet(session string, id int, zoneID int, vnetID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.addvnet", session, id, zoneID, vnetID)
 	if err != nil {
 		return 0, err
 	}
@@ -132,8 +132,8 @@ func (d *virtualDataCenter) addVNet(session string, id int, zoneID int, vnetID i
 	return errorOrInt(v)
 }
 
-func (d *virtualDataCenter) delVNet(session string, id int, zoneID int, vnetID int) (int, error) {
-	v, err := d.client.Call("one.vdc.delvnet", session, id, zoneID, vnetID)
+func (d *VirtualDataCenter) DelVNet(session string, id int, zoneID int, vnetID int) (int, error) {
+	v, err := d.Client.Call("one.vdc.delvnet", session, id, zoneID, vnetID)
 	if err != nil {
 		return 0, err
 	}

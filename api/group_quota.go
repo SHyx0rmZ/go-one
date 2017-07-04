@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type groupQuota struct {
-	client xmlrpc.Client
+type GroupQuota struct {
+	Client xmlrpc.Client
 }
 
-func (g *groupQuota) info(session string) (string, error) {
-	v, err := g.client.Call("one.groupquota.info", session)
+func (g *GroupQuota) Info(session string) (string, error) {
+	v, err := g.Client.Call("one.groupquota.info", session)
 	if err != nil {
 		return "", err
 	}
@@ -15,8 +15,8 @@ func (g *groupQuota) info(session string) (string, error) {
 	return errorOrString(v)
 }
 
-func (g *groupQuota) update(session string, template string) (string, error) {
-	v, err := g.client.Call("one.groupquota.update", session, template)
+func (g *GroupQuota) Update(session string, template string) (string, error) {
+	v, err := g.Client.Call("one.groupquota.update", session, template)
 	if err != nil {
 		return "", err
 	}

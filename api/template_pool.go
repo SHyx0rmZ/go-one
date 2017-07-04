@@ -3,18 +3,18 @@ package api
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
 const (
-	filterUsersPrimaryGroup = -4
-	filterUserOnly          = -3
-	filterAll               = -2
-	filterUsersAndGroups    = -1
+	FilterUsersPrimaryGroup = -4
+	FilterUserOnly          = -3
+	FilterAll               = -2
+	FilterUsersAndGroups    = -1
 )
 
-type templatePool struct {
-	client xmlrpc.Client
+type TemplatePool struct {
+	Client xmlrpc.Client
 }
 
-func (t *templatePool) info(session string, filter int, start int, end int) (string, error) {
-	v, err := t.client.Call("one.templatepool.info", session, filter, start, end)
+func (t *TemplatePool) Info(session string, filter int, start int, end int) (string, error) {
+	v, err := t.Client.Call("one.templatepool.info", session, filter, start, end)
 	if err != nil {
 		return "", err
 	}

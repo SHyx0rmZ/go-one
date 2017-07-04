@@ -3,12 +3,12 @@ package api
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
 type OneError struct {
-	message string
-	code    int
+	Message string
+	Code    int
 }
 
 func (e OneError) Error() string {
-	return e.message
+	return e.Message
 }
 
 func errorOrBool(v xmlrpc.Value) (bool, error) {

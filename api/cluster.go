@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type cluster struct {
-	client xmlrpc.Client
+type Cluster struct {
+	Client xmlrpc.Client
 }
 
-func (c *cluster) allocate(session string, name string) (int, error) {
-	v, err := c.client.Call("one.cluster.allocate", session, name)
+func (c *Cluster) Allocate(session string, name string) (int, error) {
+	v, err := c.Client.Call("one.cluster.allocate", session, name)
 	if err != nil {
 		return 0, err
 	}
@@ -15,8 +15,8 @@ func (c *cluster) allocate(session string, name string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (c *cluster) delete(session string, clusterID int) (int, error) {
-	v, err := c.client.Call("one.cluster.delete", session, clusterID)
+func (c *Cluster) Delete(session string, clusterID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.delete", session, clusterID)
 	if err != nil {
 		return 0, err
 	}
@@ -24,8 +24,8 @@ func (c *cluster) delete(session string, clusterID int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (c *cluster) update(session string, clusterID int, template string, updateType int) (int, error) {
-	v, err := c.client.Call("one.cluster.update", session, clusterID, template, updateType)
+func (c *Cluster) Update(session string, clusterID int, template string, updateType int) (int, error) {
+	v, err := c.Client.Call("one.cluster.update", session, clusterID, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -33,8 +33,8 @@ func (c *cluster) update(session string, clusterID int, template string, updateT
 	return errorOrInt(v)
 }
 
-func (c *cluster) addHost(session string, clusterID int, hostID int) (int, error) {
-	v, err := c.client.Call("one.cluster.addhost", session, clusterID, hostID)
+func (c *Cluster) AddHost(session string, clusterID int, hostID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.addhost", session, clusterID, hostID)
 	if err != nil {
 		return 0, err
 	}
@@ -42,8 +42,8 @@ func (c *cluster) addHost(session string, clusterID int, hostID int) (int, error
 	return errorOrInt(v)
 }
 
-func (c *cluster) delHost(session string, clusterID int, hostID int) (int, error) {
-	v, err := c.client.Call("one.cluster.delhost", session, clusterID, hostID)
+func (c *Cluster) DelHost(session string, clusterID int, hostID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.delhost", session, clusterID, hostID)
 	if err != nil {
 		return 0, err
 	}
@@ -51,8 +51,8 @@ func (c *cluster) delHost(session string, clusterID int, hostID int) (int, error
 	return errorOrInt(v)
 }
 
-func (c *cluster) addDataStore(session string, clusterID int, dataStoreID int) (int, error) {
-	v, err := c.client.Call("one.cluster.adddatastore", session, clusterID, dataStoreID)
+func (c *Cluster) AddDataStore(session string, clusterID int, dataStoreID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.adddatastore", session, clusterID, dataStoreID)
 	if err != nil {
 		return 0, err
 	}
@@ -60,8 +60,8 @@ func (c *cluster) addDataStore(session string, clusterID int, dataStoreID int) (
 	return errorOrInt(v)
 }
 
-func (c *cluster) delDataStore(session string, clusterID int, dataStoreID int) (int, error) {
-	v, err := c.client.Call("one.cluster.deldatastore", session, clusterID, dataStoreID)
+func (c *Cluster) DelDataStore(session string, clusterID int, dataStoreID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.deldatastore", session, clusterID, dataStoreID)
 	if err != nil {
 		return 0, err
 	}
@@ -69,8 +69,8 @@ func (c *cluster) delDataStore(session string, clusterID int, dataStoreID int) (
 	return errorOrInt(v)
 }
 
-func (c *cluster) addVNet(session string, clusterID int, virtualNetworkID int) (int, error) {
-	v, err := c.client.Call("one.cluster.addvnet", session, clusterID, virtualNetworkID)
+func (c *Cluster) AddVNet(session string, clusterID int, virtualNetworkID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.addvnet", session, clusterID, virtualNetworkID)
 	if err != nil {
 		return 0, err
 	}
@@ -78,8 +78,8 @@ func (c *cluster) addVNet(session string, clusterID int, virtualNetworkID int) (
 	return errorOrInt(v)
 }
 
-func (c *cluster) delVNet(session string, clusterID int, virtualNetworkID int) (int, error) {
-	v, err := c.client.Call("one.cluster.delvnet", session, clusterID, virtualNetworkID)
+func (c *Cluster) DelVNet(session string, clusterID int, virtualNetworkID int) (int, error) {
+	v, err := c.Client.Call("one.cluster.delvnet", session, clusterID, virtualNetworkID)
 	if err != nil {
 		return 0, err
 	}
@@ -87,8 +87,8 @@ func (c *cluster) delVNet(session string, clusterID int, virtualNetworkID int) (
 	return errorOrInt(v)
 }
 
-func (c *cluster) rename(session string, clusterID int, name string) (int, error) {
-	v, err := c.client.Call("one.cluster.rename", session, clusterID, name)
+func (c *Cluster) Rename(session string, clusterID int, name string) (int, error) {
+	v, err := c.Client.Call("one.cluster.rename", session, clusterID, name)
 	if err != nil {
 		return 0, err
 	}
@@ -96,8 +96,8 @@ func (c *cluster) rename(session string, clusterID int, name string) (int, error
 	return errorOrInt(v)
 }
 
-func (c *cluster) info(session string, clusterID int) (string, error) {
-	v, err := c.client.Call("one.cluster.info", session, clusterID)
+func (c *Cluster) Info(session string, clusterID int) (string, error) {
+	v, err := c.Client.Call("one.cluster.info", session, clusterID)
 	if err != nil {
 		return "", err
 	}

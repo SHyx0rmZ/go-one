@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type virtualNetwork struct {
-	client xmlrpc.Client
+type VirtualNetwork struct {
+	Client xmlrpc.Client
 }
 
-func (n *virtualNetwork) allocate(session string, template string, clusterID int) (int, error) {
-	v, err := n.client.Call("one.vn.allocate", session, template, clusterID)
+func (n *VirtualNetwork) Allocate(session string, template string, clusterID int) (int, error) {
+	v, err := n.Client.Call("one.vn.allocate", session, template, clusterID)
 	if err != nil {
 		return 0, err
 	}
@@ -15,8 +15,8 @@ func (n *virtualNetwork) allocate(session string, template string, clusterID int
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) delete(session string, id int) (int, error) {
-	v, err := n.client.Call("one.vn.delete", session, id)
+func (n *VirtualNetwork) Delete(session string, id int) (int, error) {
+	v, err := n.Client.Call("one.vn.delete", session, id)
 	if err != nil {
 		return 0, err
 	}
@@ -24,8 +24,8 @@ func (n *virtualNetwork) delete(session string, id int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) addAR(session string, id int, template string) (int, error) {
-	v, err := n.client.Call("one.vn.add_ar", session, id, template)
+func (n *VirtualNetwork) AddAR(session string, id int, template string) (int, error) {
+	v, err := n.Client.Call("one.vn.add_ar", session, id, template)
 	if err != nil {
 		return 0, err
 	}
@@ -33,8 +33,8 @@ func (n *virtualNetwork) addAR(session string, id int, template string) (int, er
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) rmAR(session string, id int, addressRangeID int) (int, error) {
-	v, err := n.client.Call("one.vn.rm_ar", session, id, addressRangeID)
+func (n *VirtualNetwork) RmAR(session string, id int, addressRangeID int) (int, error) {
+	v, err := n.Client.Call("one.vn.rm_ar", session, id, addressRangeID)
 	if err != nil {
 		return 0, err
 	}
@@ -42,8 +42,8 @@ func (n *virtualNetwork) rmAR(session string, id int, addressRangeID int) (int, 
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) updateAR(session string, addressRangeID int) (int, error) {
-	v, err := n.client.Call("one.vn.update_ar", session, addressRangeID)
+func (n *VirtualNetwork) UpdateAR(session string, addressRangeID int) (int, error) {
+	v, err := n.Client.Call("one.vn.update_ar", session, addressRangeID)
 	if err != nil {
 		return 0, err
 	}
@@ -51,8 +51,8 @@ func (n *virtualNetwork) updateAR(session string, addressRangeID int) (int, erro
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) reserve(session string, id int, template string) (int, error) {
-	v, err := n.client.Call("one.vn.reserve", session, id, template)
+func (n *VirtualNetwork) Reserve(session string, id int, template string) (int, error) {
+	v, err := n.Client.Call("one.vn.reserve", session, id, template)
 	if err != nil {
 		return 0, err
 	}
@@ -60,8 +60,8 @@ func (n *virtualNetwork) reserve(session string, id int, template string) (int, 
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) freeAR(session string, id int, addressRangeID int) (int, error) {
-	v, err := n.client.Call("one.vn.free_ar", session, id, addressRangeID)
+func (n *VirtualNetwork) FreeAR(session string, id int, addressRangeID int) (int, error) {
+	v, err := n.Client.Call("one.vn.free_ar", session, id, addressRangeID)
 	if err != nil {
 		return 0, err
 	}
@@ -69,8 +69,8 @@ func (n *virtualNetwork) freeAR(session string, id int, addressRangeID int) (int
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) hold(session string, id int, template string) (int, error) {
-	v, err := n.client.Call("one.vn.hold", session, id, template)
+func (n *VirtualNetwork) Hold(session string, id int, template string) (int, error) {
+	v, err := n.Client.Call("one.vn.hold", session, id, template)
 	if err != nil {
 		return 0, err
 	}
@@ -78,8 +78,8 @@ func (n *virtualNetwork) hold(session string, id int, template string) (int, err
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) release(session string, id int, template string) (int, error) {
-	v, err := n.client.Call("one.vn.release", session, id, template)
+func (n *VirtualNetwork) Release(session string, id int, template string) (int, error) {
+	v, err := n.Client.Call("one.vn.release", session, id, template)
 	if err != nil {
 		return 0, err
 	}
@@ -87,8 +87,8 @@ func (n *virtualNetwork) release(session string, id int, template string) (int, 
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) update(session string, id int, template string, updateType int) (int, error) {
-	v, err := n.client.Call("one.vn.update", session, id, template, updateType)
+func (n *VirtualNetwork) Update(session string, id int, template string, updateType int) (int, error) {
+	v, err := n.Client.Call("one.vn.update", session, id, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -96,8 +96,8 @@ func (n *virtualNetwork) update(session string, id int, template string, updateT
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int) (int, error) {
-	v, err := n.client.Call("one.vn.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin)
+func (n *VirtualNetwork) Chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int) (int, error) {
+	v, err := n.Client.Call("one.vn.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin)
 	if err != nil {
 		return 0, err
 	}
@@ -105,8 +105,8 @@ func (n *virtualNetwork) chmod(session string, id int, userUse int, userManage i
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) chown(session string, id int, userID int, groupID int) (int, error) {
-	v, err := n.client.Call("one.vn.chown", session, id, userID, groupID)
+func (n *VirtualNetwork) Chown(session string, id int, userID int, groupID int) (int, error) {
+	v, err := n.Client.Call("one.vn.chown", session, id, userID, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -114,8 +114,8 @@ func (n *virtualNetwork) chown(session string, id int, userID int, groupID int) 
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) rename(session string, id int, name string) (int, error) {
-	v, err := n.client.Call("one.vn.rename", session, id, name)
+func (n *VirtualNetwork) Rename(session string, id int, name string) (int, error) {
+	v, err := n.Client.Call("one.vn.rename", session, id, name)
 	if err != nil {
 		return 0, err
 	}
@@ -123,8 +123,8 @@ func (n *virtualNetwork) rename(session string, id int, name string) (int, error
 	return errorOrInt(v)
 }
 
-func (n *virtualNetwork) info(session string, id int) (string, error) {
-	v, err := n.client.Call("one.vn.info", session, id)
+func (n *VirtualNetwork) Info(session string, id int) (string, error) {
+	v, err := n.Client.Call("one.vn.info", session, id)
 	if err != nil {
 		return "", err
 	}

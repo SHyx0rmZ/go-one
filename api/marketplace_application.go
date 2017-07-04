@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type marketplaceApplication struct {
-	client xmlrpc.Client
+type MarketplaceApplication struct {
+	Client xmlrpc.Client
 }
 
-func (m *marketplaceApplication) allocate(session string, template string, dataStoreID int) (int, error) {
-	v, err := m.client.Call("one.marketapp.allocate", session, template, dataStoreID)
+func (m *MarketplaceApplication) Allocate(session string, template string, dataStoreID int) (int, error) {
+	v, err := m.Client.Call("one.marketapp.allocate", session, template, dataStoreID)
 	if err != nil {
 		return 0, err
 	}
@@ -15,8 +15,8 @@ func (m *marketplaceApplication) allocate(session string, template string, dataS
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) delete(session string, id int) (int, error) {
-	v, err := m.client.Call("one.marketapp.delete", session, id)
+func (m *MarketplaceApplication) Delete(session string, id int) (int, error) {
+	v, err := m.Client.Call("one.marketapp.delete", session, id)
 	if err != nil {
 		return 0, err
 	}
@@ -24,8 +24,8 @@ func (m *marketplaceApplication) delete(session string, id int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) enable(session string, id int, enable bool) (int, error) {
-	v, err := m.client.Call("one.marketapp.enable", session, id, enable)
+func (m *MarketplaceApplication) Enable(session string, id int, enable bool) (int, error) {
+	v, err := m.Client.Call("one.marketapp.enable", session, id, enable)
 	if err != nil {
 		return 0, err
 	}
@@ -33,8 +33,8 @@ func (m *marketplaceApplication) enable(session string, id int, enable bool) (in
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) update(session string, id int, template string, updateType int) (int, error) {
-	v, err := m.client.Call("one.marketapp.update", session, id, template, updateType)
+func (m *MarketplaceApplication) Update(session string, id int, template string, updateType int) (int, error) {
+	v, err := m.Client.Call("one.marketapp.update", session, id, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -42,8 +42,8 @@ func (m *marketplaceApplication) update(session string, id int, template string,
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int) (int, error) {
-	v, err := m.client.Call("one.marketapp.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin)
+func (m *MarketplaceApplication) Chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int) (int, error) {
+	v, err := m.Client.Call("one.marketapp.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin)
 	if err != nil {
 		return 0, err
 	}
@@ -51,8 +51,8 @@ func (m *marketplaceApplication) chmod(session string, id int, userUse int, user
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) chown(session string, id int, userID int, groupID int) (int, error) {
-	v, err := m.client.Call("one.marketapp.chown", session, id, userID, groupID)
+func (m *MarketplaceApplication) Chown(session string, id int, userID int, groupID int) (int, error) {
+	v, err := m.Client.Call("one.marketapp.chown", session, id, userID, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -60,8 +60,8 @@ func (m *marketplaceApplication) chown(session string, id int, userID int, group
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) rename(session string, id int, name string) (int, error) {
-	v, err := m.client.Call("one.marketapp.rename", session, id, name)
+func (m *MarketplaceApplication) Rename(session string, id int, name string) (int, error) {
+	v, err := m.Client.Call("one.marketapp.rename", session, id, name)
 	if err != nil {
 		return 0, err
 	}
@@ -69,8 +69,8 @@ func (m *marketplaceApplication) rename(session string, id int, name string) (in
 	return errorOrInt(v)
 }
 
-func (m *marketplaceApplication) info(session string, id int) (string, error) {
-	v, err := m.client.Call("one.marketapp.info", session, id)
+func (m *MarketplaceApplication) Info(session string, id int) (string, error) {
+	v, err := m.Client.Call("one.marketapp.info", session, id)
 	if err != nil {
 		return "", err
 	}

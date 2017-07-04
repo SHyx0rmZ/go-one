@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type groupPool struct {
-	client xmlrpc.Client
+type GroupPool struct {
+	Client xmlrpc.Client
 }
 
-func (p *groupPool) info(session string) (string, error) {
-	v, err := p.client.Call("one.grouppool.info", session)
+func (p *GroupPool) Info(session string) (string, error) {
+	v, err := p.Client.Call("one.grouppool.info", session)
 	if err != nil {
 		return "", err
 	}

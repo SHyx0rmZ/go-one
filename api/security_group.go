@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type securityGroup struct {
-	client xmlrpc.Client
+type SecurityGroup struct {
+	Client xmlrpc.Client
 }
 
-func (s *securityGroup) allocate(session string, template string) (int, error) {
-	v, err := s.client.Call("one.secgroup.allocate", session, template)
+func (s *SecurityGroup) Allocate(session string, template string) (int, error) {
+	v, err := s.Client.Call("one.secgroup.allocate", session, template)
 	if err != nil {
 		return 0, err
 	}
@@ -15,8 +15,8 @@ func (s *securityGroup) allocate(session string, template string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) clone(session string, id int, name string, dataStoreID int) (int, error) {
-	v, err := s.client.Call("one.secgroup.clone", session, id, name, dataStoreID)
+func (s *SecurityGroup) Clone(session string, id int, name string, dataStoreID int) (int, error) {
+	v, err := s.Client.Call("one.secgroup.clone", session, id, name, dataStoreID)
 	if err != nil {
 		return 0, err
 	}
@@ -24,8 +24,8 @@ func (s *securityGroup) clone(session string, id int, name string, dataStoreID i
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) delete(session string, id int) (int, error) {
-	v, err := s.client.Call("one.secgroup.delete", session, id)
+func (s *SecurityGroup) Delete(session string, id int) (int, error) {
+	v, err := s.Client.Call("one.secgroup.delete", session, id)
 	if err != nil {
 		return 0, err
 	}
@@ -33,8 +33,8 @@ func (s *securityGroup) delete(session string, id int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) update(session string, id int, template string, updateType int) (int, error) {
-	v, err := s.client.Call("one.secgroup.update", session, id, template, updateType)
+func (s *SecurityGroup) Update(session string, id int, template string, updateType int) (int, error) {
+	v, err := s.Client.Call("one.secgroup.update", session, id, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -42,8 +42,8 @@ func (s *securityGroup) update(session string, id int, template string, updateTy
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) commit(session string, id int, outdatedAndErroredOnly bool) (int, error) {
-	v, err := s.client.Call("one.secgroup.commit", session, id, outdatedAndErroredOnly)
+func (s *SecurityGroup) Commit(session string, id int, outdatedAndErroredOnly bool) (int, error) {
+	v, err := s.Client.Call("one.secgroup.commit", session, id, outdatedAndErroredOnly)
 	if err != nil {
 		return 0, err
 	}
@@ -51,8 +51,8 @@ func (s *securityGroup) commit(session string, id int, outdatedAndErroredOnly bo
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int) (int, error) {
-	v, err := s.client.Call("one.secgroup.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin)
+func (s *SecurityGroup) Chmod(session string, id int, userUse int, userManage int, userAdmin int, groupUse int, groupManage int, groupAdmin int, otherUse int, otherManage int, otherAdmin int) (int, error) {
+	v, err := s.Client.Call("one.secgroup.chmod", session, id, userUse, userManage, userAdmin, groupUse, groupManage, groupAdmin, otherUse, otherManage, otherAdmin)
 	if err != nil {
 		return 0, err
 	}
@@ -60,8 +60,8 @@ func (s *securityGroup) chmod(session string, id int, userUse int, userManage in
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) chown(session string, id int, userID int, groupID int) (int, error) {
-	v, err := s.client.Call("one.secgroup.chown", session, id, userID, groupID)
+func (s *SecurityGroup) Chown(session string, id int, userID int, groupID int) (int, error) {
+	v, err := s.Client.Call("one.secgroup.chown", session, id, userID, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -69,8 +69,8 @@ func (s *securityGroup) chown(session string, id int, userID int, groupID int) (
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) rename(session string, id int, name string) (int, error) {
-	v, err := s.client.Call("one.secgroup.rename", session, id, name)
+func (s *SecurityGroup) Rename(session string, id int, name string) (int, error) {
+	v, err := s.Client.Call("one.secgroup.rename", session, id, name)
 	if err != nil {
 		return 0, err
 	}
@@ -78,8 +78,8 @@ func (s *securityGroup) rename(session string, id int, name string) (int, error)
 	return errorOrInt(v)
 }
 
-func (s *securityGroup) info(session string, id int) (string, error) {
-	v, err := s.client.Call("one.secgroup.info", session, id)
+func (s *SecurityGroup) Info(session string, id int) (string, error) {
+	v, err := s.Client.Call("one.secgroup.info", session, id)
 	if err != nil {
 		return "", err
 	}

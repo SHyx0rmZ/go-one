@@ -3,28 +3,28 @@ package api
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
 const (
-	stateAny            = -2
-	stateAnyExceptDone  = -1
-	stateInit           = 0
-	statePending        = 1
-	stateHold           = 2
-	stateActive         = 3
-	stateStopped        = 4
-	stateSuspended      = 5
-	stateDone           = 6
-	stateFailed         = 7
-	statePowerOff       = 8
-	stateUndeployed     = 9
-	stateCloning        = 10
-	stateCloningFailure = 11
+	StateAny            = -2
+	StateAnyExceptDone  = -1
+	StateInit           = 0
+	StatePending        = 1
+	StateHold           = 2
+	StateActive         = 3
+	StateStopped        = 4
+	StateSuspended      = 5
+	StateDone           = 6
+	StateFailed         = 7
+	StatePowerOff       = 8
+	StateUndeployed     = 9
+	StateCloning        = 10
+	StateCloningFailure = 11
 )
 
-type virtualMachinePool struct {
-	client xmlrpc.Client
+type VirtualMachinePool struct {
+	Client xmlrpc.Client
 }
 
-func (p *virtualMachinePool) info(session string, filter int, start int, end int, state int) (string, error) {
-	v, err := p.client.Call("one.vmpool.info", session, filter, start, end, state)
+func (p *VirtualMachinePool) Info(session string, filter int, start int, end int, state int) (string, error) {
+	v, err := p.Client.Call("one.vmpool.info", session, filter, start, end, state)
 	if err != nil {
 		return "", err
 	}
@@ -32,8 +32,8 @@ func (p *virtualMachinePool) info(session string, filter int, start int, end int
 	return errorOrString(v)
 }
 
-func (p *virtualMachinePool) monitoring(session string, filter int) (string, error) {
-	v, err := p.client.Call("one.vmpool.monitoring", session, filter)
+func (p *VirtualMachinePool) Monitoring(session string, filter int) (string, error) {
+	v, err := p.Client.Call("one.vmpool.monitoring", session, filter)
 	if err != nil {
 		return "", err
 	}
@@ -41,8 +41,8 @@ func (p *virtualMachinePool) monitoring(session string, filter int) (string, err
 	return errorOrString(v)
 }
 
-func (p *virtualMachinePool) accounting(session string, filter int, startTime int, endTime int) (string, error) {
-	v, err := p.client.Call("one.vmpool.accounting", session, filter, startTime, endTime)
+func (p *VirtualMachinePool) Accounting(session string, filter int, startTime int, endTime int) (string, error) {
+	v, err := p.Client.Call("one.vmpool.accounting", session, filter, startTime, endTime)
 	if err != nil {
 		return "", err
 	}
@@ -50,8 +50,8 @@ func (p *virtualMachinePool) accounting(session string, filter int, startTime in
 	return errorOrString(v)
 }
 
-func (p *virtualMachinePool) showback(session string, filter int, firstMonth int, firstYear int, lastMonth int, lastYear int) (string, error) {
-	v, err := p.client.Call("one.vmpool.showback", session, filter, firstMonth, firstYear, lastMonth, lastYear)
+func (p *VirtualMachinePool) Showback(session string, filter int, firstMonth int, firstYear int, lastMonth int, lastYear int) (string, error) {
+	v, err := p.Client.Call("one.vmpool.showback", session, filter, firstMonth, firstYear, lastMonth, lastYear)
 	if err != nil {
 		return "", err
 	}
@@ -59,8 +59,8 @@ func (p *virtualMachinePool) showback(session string, filter int, firstMonth int
 	return errorOrString(v)
 }
 
-func (p *virtualMachinePool) calculateShowback(session string, firstMonth int, firstYear int, lastMonth int, lastYear int) error {
-	v, err := p.client.Call("one.vmpool.calculateshowback", session, firstMonth, firstYear, lastMonth, lastYear)
+func (p *VirtualMachinePool) CalculateShowback(session string, firstMonth int, firstYear int, lastMonth int, lastYear int) error {
+	v, err := p.Client.Call("one.vmpool.calculateshowback", session, firstMonth, firstYear, lastMonth, lastYear)
 	if err != nil {
 		return err
 	}

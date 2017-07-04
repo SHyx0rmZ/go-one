@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type documentPool struct {
-	client xmlrpc.Client
+type DocumentPool struct {
+	Client xmlrpc.Client
 }
 
-func (p *documentPool) info(session string, filter int, start int, end int, documentType int) (string, error) {
-	v, err := p.client.Call("one.documentpool.info", session, filter, start, end, documentType)
+func (p *DocumentPool) Info(session string, filter int, start int, end int, documentType int) (string, error) {
+	v, err := p.Client.Call("one.documentpool.info", session, filter, start, end, documentType)
 	if err != nil {
 		return "", err
 	}

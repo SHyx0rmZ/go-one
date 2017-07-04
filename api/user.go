@@ -3,15 +3,15 @@ package api
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
 const (
-	authenticationDriverCore = "core"
+	AuthenticationDriverCore = "core"
 )
 
-type user struct {
-	client xmlrpc.Client
+type User struct {
+	Client xmlrpc.Client
 }
 
-func (u *user) allocate(session string, username string, password string, authenticationDriver string, groupIDs ...int) (int, error) {
-	v, err := u.client.Call("one.user.allocate", session, username, password, authenticationDriver, groupIDs)
+func (u *User) Allocate(session string, username string, password string, authenticationDriver string, groupIDs ...int) (int, error) {
+	v, err := u.Client.Call("one.user.allocate", session, username, password, authenticationDriver, groupIDs)
 	if err != nil {
 		return 0, err
 	}
@@ -19,8 +19,8 @@ func (u *user) allocate(session string, username string, password string, authen
 	return errorOrInt(v)
 }
 
-func (u *user) delete(session string, id int) (int, error) {
-	v, err := u.client.Call("one.user.delete", session, id)
+func (u *User) Delete(session string, id int) (int, error) {
+	v, err := u.Client.Call("one.user.delete", session, id)
 	if err != nil {
 		return 0, err
 	}
@@ -28,8 +28,8 @@ func (u *user) delete(session string, id int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (u *user) password(session string, id int, password string) (int, error) {
-	v, err := u.client.Call("one.user.password", session, id, password)
+func (u *User) Password(session string, id int, password string) (int, error) {
+	v, err := u.Client.Call("one.user.password", session, id, password)
 	if err != nil {
 		return 0, err
 	}
@@ -37,8 +37,8 @@ func (u *user) password(session string, id int, password string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (u *user) login(session string, username string, token string, ttlInSeconds int, effectiveGroupID int) (string, error) {
-	v, err := u.client.Call("one.user.login", session, username, token, ttlInSeconds, effectiveGroupID)
+func (u *User) Login(session string, username string, token string, ttlInSeconds int, effectiveGroupID int) (string, error) {
+	v, err := u.Client.Call("one.user.login", session, username, token, ttlInSeconds, effectiveGroupID)
 	if err != nil {
 		return "", err
 	}
@@ -46,8 +46,8 @@ func (u *user) login(session string, username string, token string, ttlInSeconds
 	return errorOrString(v)
 }
 
-func (u *user) update(session string, id int, template string, updateType int) (int, error) {
-	v, err := u.client.Call("one.user.update", session, id, template, updateType)
+func (u *User) Update(session string, id int, template string, updateType int) (int, error) {
+	v, err := u.Client.Call("one.user.update", session, id, template, updateType)
 	if err != nil {
 		return 0, err
 	}
@@ -55,8 +55,8 @@ func (u *user) update(session string, id int, template string, updateType int) (
 	return errorOrInt(v)
 }
 
-func (u *user) chauth(session string, id int, authenticationDriver string, optionalNewPassword string) (int, error) {
-	v, err := u.client.Call("one.user.chauth", session, id, authenticationDriver, optionalNewPassword)
+func (u *User) Chauth(session string, id int, authenticationDriver string, optionalNewPassword string) (int, error) {
+	v, err := u.Client.Call("one.user.chauth", session, id, authenticationDriver, optionalNewPassword)
 	if err != nil {
 		return 0, err
 	}
@@ -64,8 +64,8 @@ func (u *user) chauth(session string, id int, authenticationDriver string, optio
 	return errorOrInt(v)
 }
 
-func (u *user) quota(session string, id int, template string) (int, error) {
-	v, err := u.client.Call("one.user.quota", session, id, template)
+func (u *User) Quota(session string, id int, template string) (int, error) {
+	v, err := u.Client.Call("one.user.quota", session, id, template)
 	if err != nil {
 		return 0, err
 	}
@@ -73,8 +73,8 @@ func (u *user) quota(session string, id int, template string) (int, error) {
 	return errorOrInt(v)
 }
 
-func (u *user) chgrp(session string, id int, groupID int) (int, error) {
-	v, err := u.client.Call("one.user.chgrp", session, id, groupID)
+func (u *User) Chgrp(session string, id int, groupID int) (int, error) {
+	v, err := u.Client.Call("one.user.chgrp", session, id, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -82,8 +82,8 @@ func (u *user) chgrp(session string, id int, groupID int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (u *user) addgroup(session string, id int, groupID int) (int, error) {
-	v, err := u.client.Call("one.user.addgroup", session, id, groupID)
+func (u *User) AddGroup(session string, id int, groupID int) (int, error) {
+	v, err := u.Client.Call("one.user.addgroup", session, id, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -91,8 +91,8 @@ func (u *user) addgroup(session string, id int, groupID int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (u *user) delgroup(session string, id int, groupID int) (int, error) {
-	v, err := u.client.Call("one.user.delgroup", session, id, groupID)
+func (u *User) DelGroup(session string, id int, groupID int) (int, error) {
+	v, err := u.Client.Call("one.user.delgroup", session, id, groupID)
 	if err != nil {
 		return 0, err
 	}
@@ -100,8 +100,8 @@ func (u *user) delgroup(session string, id int, groupID int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (u *user) info(session string, id int) (string, error) {
-	v, err := u.client.Call("one.user.info", session, id)
+func (u *User) Info(session string, id int) (string, error) {
+	v, err := u.Client.Call("one.user.info", session, id)
 	if err != nil {
 		return "", err
 	}

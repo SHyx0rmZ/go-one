@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type marketplaceApplicationPool struct {
-	client xmlrpc.Client
+type MarketplaceApplicationPool struct {
+	Client xmlrpc.Client
 }
 
-func (p *marketplaceApplicationPool) info(session string, filter int, start int, end int) (string, error) {
-	v, err := p.client.Call("one.marketapppool.info", session, filter, start, end)
+func (p *MarketplaceApplicationPool) Info(session string, filter int, start int, end int) (string, error) {
+	v, err := p.Client.Call("one.marketapppool.info", session, filter, start, end)
 	if err != nil {
 		return "", err
 	}

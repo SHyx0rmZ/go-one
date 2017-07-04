@@ -2,12 +2,12 @@ package api
 
 import "github.com/SHyx0rmZ/go-xmlrpc"
 
-type virtualDataCenterPool struct {
-	client xmlrpc.Client
+type VirtualDataCenterPool struct {
+	Client xmlrpc.Client
 }
 
-func (p *virtualDataCenterPool) info(session string) (string, error) {
-	v, err := p.client.Call("one.vdcpool.info", session)
+func (p *VirtualDataCenterPool) Info(session string) (string, error) {
+	v, err := p.Client.Call("one.vdcpool.info", session)
 	if err != nil {
 		return "", err
 	}
