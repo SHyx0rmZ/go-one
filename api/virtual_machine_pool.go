@@ -65,8 +65,18 @@ func (p *VirtualMachinePool) CalculateShowback(session string, firstMonth int, f
 		return err
 	}
 
-	if v.Values()[0].Bool() != true {
-		return &OneError{v.Values()[1].String(), v.Values()[2].Int()}
+	if v.Kind() != xmlrpc.Array || len(v.Values()) < 1 || v.Values()[0].Kind() != xmlrpc.Bool {
+		return ErrInvalidOneResponse
+	}
+
+	vs := v.Values()
+
+	if vs[0].Bool() != true {
+		if len(vs) < 3 || vs[1].Kind() != xmlrpc.String || vs[2].Kind() != xmlrpc.Int {
+			return ErrInvalidOneResponse
+		}
+
+		return &OneError{vs[1].String(), vs[2].Int()}
 	}
 
 	return nil
