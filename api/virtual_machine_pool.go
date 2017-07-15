@@ -65,8 +65,8 @@ func (p *VirtualMachinePool) CalculateShowback(session string, firstMonth int, f
 		return err
 	}
 
-	if v.AsArray()[0].AsBool() != true {
-		return &OneError{v.AsArray()[1].AsString(), v.AsArray()[2].AsInt()}
+	if v.Values()[0].Bool() != true {
+		return &OneError{v.Values()[1].String(), v.Values()[2].Int()}
 	}
 
 	return nil
