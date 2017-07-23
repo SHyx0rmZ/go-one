@@ -1,0 +1,6 @@
+hash: 4f55fa66c4391b2ba8a9a4c5f7961b23f6c424fb28b96e01155d7c9afe4d3148
+updated: 2017-07-23T15:23:54.830264992+02:00
+imports:
+- name: github.com/SHyx0rmZ/go-xmlrpc
+  version: 6fb6fcb08a50f1030923ad265661dde1b6956a8d
+testImports: []
