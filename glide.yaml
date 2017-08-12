@@ -1,4 +1,2 @@
 package: github.com/SHyx0rmZ/go-one
-import:
-- package: github.com/SHyx0rmZ/go-xmlrpc
-  version: ^1.0.0
+import: []
