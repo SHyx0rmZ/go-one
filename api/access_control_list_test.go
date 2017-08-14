@@ -28,7 +28,7 @@ func TestAccessControlList_AddRule(t *testing.T) {
 
 	v, err := i.AddRule("test-session", "test-user", "test-resource", "test-rights")
 	if err != nil || v != 42 {
-		t.Errorf("AddRule() == (%v, %q), want (%v, %q)", v, err, 42, nil)
+		t.Errorf("AddRule() == (%v, %v), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -51,7 +51,7 @@ func TestAccessControlList_DelRule(t *testing.T) {
 
 	v, err := i.DelRule("test-session", 42)
 	if err != nil || v != 42 {
-		t.Errorf("DelRule() == (%v, %q), want (%v, %q)", v, err, 42, nil)
+		t.Errorf("DelRule() == (%v, %v), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -74,6 +74,6 @@ func TestAccessControlList_Info(t *testing.T) {
 
 	v, err := i.Info("test-session", 42)
 	if err != nil || v != "test-info" {
-		t.Errorf("Info() == (%v, %q), want (%v, %q)", v, err, "test-info", nil)
+		t.Errorf("Info() == (%v, %v), want (%v, %v)", v, err, "test-info", nil)
 	}
 }
