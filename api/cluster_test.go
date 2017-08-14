@@ -27,7 +27,7 @@ func TestCluster_AddDataStore(t *testing.T) {
 
 	v, err := i.AddDataStore("test-session", 42, 21)
 	if err != nil || v != 42 {
-		t.Errorf("AddDataStore() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("AddDataStore() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -51,7 +51,7 @@ func TestCluster_AddHost(t *testing.T) {
 
 	v, err := i.AddHost("test-session", 42, 21)
 	if err != nil || v != 42 {
-		t.Errorf("AddHost() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("AddHost() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -75,7 +75,7 @@ func TestCluster_AddVNet(t *testing.T) {
 
 	v, err := i.AddVNet("test-session", 42, 21)
 	if err != nil || v != 42 {
-		t.Errorf("AddVNet() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("AddVNet() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -98,7 +98,7 @@ func TestCluster_Allocate(t *testing.T) {
 
 	v, err := i.Allocate("test-session", "test-name")
 	if err != nil || v != 42 {
-		t.Errorf("Allocate() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Allocate() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -122,7 +122,7 @@ func TestCluster_DelDataStore(t *testing.T) {
 
 	v, err := i.DelDataStore("test-session", 42, 21)
 	if err != nil || v != 42 {
-		t.Errorf("DelDataStore() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("DelDataStore() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -145,7 +145,7 @@ func TestCluster_Delete(t *testing.T) {
 
 	v, err := i.Delete("test-session", 42)
 	if err != nil || v != 42 {
-		t.Errorf("Delete() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Delete() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -169,7 +169,7 @@ func TestCluster_DelHost(t *testing.T) {
 
 	v, err := i.DelHost("test-session", 42, 21)
 	if err != nil || v != 42 {
-		t.Errorf("DelHost() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("DelHost() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -193,7 +193,7 @@ func TestCluster_DelVNet(t *testing.T) {
 
 	v, err := i.DelVNet("test-session", 42, 21)
 	if err != nil || v != 42 {
-		t.Errorf("DelVNet() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("DelVNet() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -216,7 +216,7 @@ func TestCluster_Info(t *testing.T) {
 
 	v, err := i.Info("test-session", 42)
 	if err != nil || v != "test-info" {
-		t.Errorf("Info() == (%v, %v), want (%v, %v)", v, err, "test-info", nil)
+		t.Errorf("Info() == (%v, %q), want (%v, %v)", v, err, "test-info", nil)
 	}
 }
 
@@ -240,7 +240,7 @@ func TestCluster_Rename(t *testing.T) {
 
 	v, err := i.Rename("test-session", 42, "test-name")
 	if err != nil || v != 42 {
-		t.Errorf("Rename() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Rename() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -265,6 +265,6 @@ func TestCluster_Update(t *testing.T) {
 
 	v, err := i.Update("test-session", 42, "test-template", api.UpdateTypeMerge)
 	if err != nil || v != 42 {
-		t.Errorf("Update() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Update() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }

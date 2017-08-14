@@ -23,6 +23,6 @@ func TestDocumentPool_Info(t *testing.T) {
 	i := api.DocumentPool{Client: c}
 	v, err := i.Info("test-session", api.FilterAll, -1, -1, 21)
 	if err != nil || v != "test-info" {
-		t.Errorf("Info() == (%q, %v), want (%q, %v)", v, err, "test-info", nil)
+		t.Errorf("Info() == (%q, %q), want (%q, %v)", v, err, "test-info", nil)
 	}
 }

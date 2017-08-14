@@ -20,6 +20,6 @@ func TestClusterPool_Info(t *testing.T) {
 
 	v, err := i.Info("test-session")
 	if err != nil || v != "test-info" {
-		t.Errorf("Info() == (%q, %v), want (%q, %v)", v, err, "test-info", nil)
+		t.Errorf("Info() == (%q, %q), want (%q, %v)", v, err, "test-info", nil)
 	}
 }

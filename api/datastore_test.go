@@ -21,7 +21,7 @@ func TestDatastore_Allocate(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Allocate("test-session", "test-template", 42)
 	if err != nil || v != 21 {
-		t.Errorf("Allocate() == (%v, %v), want (%v, %v)", v, err, 21, nil)
+		t.Errorf("Allocate() == (%v, %q), want (%v, %v)", v, err, 21, nil)
 	}
 }
 
@@ -46,7 +46,7 @@ func TestDatastore_Chmod(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Chmod("test-session", 42, 1, 1, 1, 0, 0, 0, -1, -1, -1)
 	if err != nil || v != 42 {
-		t.Errorf("Chmod() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Chmod() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -64,7 +64,7 @@ func TestDatastore_Chown(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Chown("test-session", 42, -1, 21)
 	if err != nil || v != 42 {
-		t.Errorf("Chown() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Chown() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -80,7 +80,7 @@ func TestDatastore_Delete(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Delete("test-session", 42)
 	if err != nil || v != 42 {
-		t.Errorf("Delete() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Delete() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -97,7 +97,7 @@ func TestDatastore_Enable(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Enable("test-session", 42, true)
 	if err != nil || v != 42 {
-		t.Errorf("Enable() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Enable() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -113,7 +113,7 @@ func TestDatastore_Info(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Info("test-session", 42)
 	if err != nil || v != "test-info" {
-		t.Errorf("Info() == (%q, %v), want (%q, %v)", v, err, "test-info", nil)
+		t.Errorf("Info() == (%q, %q), want (%q, %v)", v, err, "test-info", nil)
 	}
 }
 
@@ -130,7 +130,7 @@ func TestDatastore_Rename(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Rename("test-session", 42, "test-name")
 	if err != nil || v != 42 {
-		t.Errorf("Rename() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Rename() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
 
@@ -148,6 +148,6 @@ func TestDatastore_Update(t *testing.T) {
 	i := api.Datastore{Client: c}
 	v, err := i.Update("test-session", 42, "test-template", api.UpdateTypeMerge)
 	if err != nil || v != 42 {
-		t.Errorf("Update() == (%v, %v), want (%v, %v)", v, err, 42, nil)
+		t.Errorf("Update() == (%v, %q), want (%v, %v)", v, err, 42, nil)
 	}
 }
