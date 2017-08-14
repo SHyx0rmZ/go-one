@@ -1,7 +1,6 @@
 package api_test
 
 import (
-	"github.com/SHyx0rmZ/go-one/api"
 	"github.com/SHyx0rmZ/go-xmlrpc"
 	"github.com/SHyx0rmZ/go-xmlrpc/mock"
 	"reflect"
