@@ -7,7 +7,7 @@ type MarketplacePool struct {
 }
 
 func (p *MarketplacePool) Info(session string) (string, error) {
-	v, err := p.Client.Call("one.marketplacepool.info", session)
+	v, err := p.Client.Call("one.marketpool.info", session)
 	if err != nil {
 		return "", err
 	}
