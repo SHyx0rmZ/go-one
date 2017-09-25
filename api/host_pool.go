@@ -16,7 +16,7 @@ func (p *HostPool) Info(session string) (string, error) {
 }
 
 func (p *HostPool) Monitoring(session string) (string, error) {
-	v, err := p.Client.Call("one.hostpool.info", session)
+	v, err := p.Client.Call("one.hostpool.monitoring", session)
 	if err != nil {
 		return "", err
 	}
