@@ -24,8 +24,8 @@ func (r *VirtualRouter) Delete(session string, id int) (int, error) {
 	return errorOrInt(v)
 }
 
-func (r *VirtualRouter) Instantiate(session string, id int, virtualMachineCount int, templateID int, onHold bool, extraTemplate string) (int, error) {
-	v, err := r.Client.Call("one.vrouter.instantiate", session, id, virtualMachineCount, templateID, onHold, extraTemplate)
+func (r *VirtualRouter) Instantiate(session string, id int, virtualMachineCount int, name string, templateID int, onHold bool, extraTemplate string) (int, error) {
+	v, err := r.Client.Call("one.vrouter.instantiate", session, id, virtualMachineCount, name, templateID, onHold, extraTemplate)
 	if err != nil {
 		return 0, err
 	}
