@@ -42,8 +42,8 @@ func (n *VirtualNetwork) RmAR(session string, id int, addressRangeID int) (int, 
 	return errorOrInt(v)
 }
 
-func (n *VirtualNetwork) UpdateAR(session string, addressRangeID int) (int, error) {
-	v, err := n.Client.Call("one.vn.update_ar", session, addressRangeID)
+func (n *VirtualNetwork) UpdateAR(session string, addressRangeID int, template string) (int, error) {
+	v, err := n.Client.Call("one.vn.update_ar", session, addressRangeID, template)
 	if err != nil {
 		return 0, err
 	}
